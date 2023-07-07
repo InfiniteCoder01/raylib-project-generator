@@ -3,7 +3,7 @@ use std::process::Command;
 
 #[derive(Parser)]
 #[clap(author = "InfiniteCoder", version)]
-/// Project generator for raylib with web support
+/// Generate rust raylib project to run in browser
 enum Cli {
     /// Creates a new rust project like cargo new does, adds raylib as a dependency, creates Assets folder, adds Makefile, .cargo/config.toml and index.html. Requires cargo to be installed.
     New { name: String },
