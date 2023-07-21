@@ -1,5 +1,5 @@
 use clap::Parser;
-use std::process::Command;
+use std::{io::Write, process::Command};
 
 #[derive(Parser)]
 #[clap(author = "InfiniteCoder", version)]
@@ -71,15 +71,14 @@ fn main() {
             std::env::set_current_dir(std::path::Path::new(&name))
                 .expect("Failed to jump to project's directory.");
 
-            assert!(
-                Command::new("cargo")
-                    .arg("add")
-                    .arg("raylib")
-                    .status()
-                    .expect("Failed to add raylib as a dependency.")
-                    .success(),
-                "Failed to add raylib as a dependency."
-            );
+            let mut cargo_toml = std::fs::OpenOptions::new()
+                .write(true)
+                .append(true)
+                .open("Cargo.toml")
+                .unwrap();
+            cargo_toml
+                .write_all(include_bytes!("template/Cargo.toml"))
+                .expect("Failed to add Raylib as a dependency");
 
             std::fs::write("src/main.rs", include_str!("template/main.rs"))
                 .expect("Failed to create config.toml.");

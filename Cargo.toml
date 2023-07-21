@@ -1,13 +1,22 @@
 [package]
 name = "raylib-project-generator"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
 authors = ["InfiniteCoder <nayka.0.lobach.01@gmail.com>"]
 description = "Generate rust raylib project to run in browser"
 readme = "README.md"
 repository = "https://github.com/InfiniteCoder01/raylib-project-generator/"
-license = "MIT"
+license = "Apache-2.0"
 keywords = ["gamedev", "graphics", "raylib"]
+categories = [
+    "command-line-utilities",
+    "config",
+    "development-tools::build-utils",
+    "game-development",
+    "template-engine",
+    "wasm",
+    "web-programming",
+]
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
