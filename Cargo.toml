@@ -14,8 +14,6 @@ categories = [
     "development-tools::build-utils",
     "game-development",
     "template-engine",
-    "wasm",
-    "web-programming",
 ]
 
 [dependencies]

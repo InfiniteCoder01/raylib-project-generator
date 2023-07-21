@@ -77,7 +77,7 @@ fn main() {
                 .open("Cargo.toml")
                 .unwrap();
             cargo_toml
-                .write_all(include_bytes!("template/Cargo.toml"))
+                .write_all(include_bytes!("template/RaylibDependency.toml"))
                 .expect("Failed to add Raylib as a dependency");
 
             std::fs::write("src/main.rs", include_str!("template/main.rs"))
